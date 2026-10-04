@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Artist Name</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500&family=Inter:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f4f1ec;
+      --ink: #1d1c1a;
+      --muted: #8a857c;
+    }
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Inter", system-ui, sans-serif;
+    }
+
+    /* Landing */
+    .hero {
+      height: 100vh;
+      height: 100svh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 16px;
+    }
+    .hero h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 300;
+      font-size: clamp(3rem, 12vw, 9rem);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      animation: rise 1.2s cubic-bezier(.2,.7,.2,1) both;
+    }
+    .hero p {
+      margin-top: 1.25rem;
+      color: var(--muted);
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      animation: rise 1.2s .3s cubic-bezier(.2,.7,.2,1) both;
+    }
+    .scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      width: 1px;
+      height: 48px;
+      background: var(--muted);
+      transform-origin: top;
+      animation: hint 2s ease-in-out infinite;
+    }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: none; }
+    }
+    @keyframes hint {
+      0%   { transform: scaleY(0); }
+      50%  { transform: scaleY(1); }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* Stacked gallery: every card sticks to the top, so the next one slides over it. */
+    .stack { position: relative; }
+    .card {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 6vh 16px;
+    }
+    .card figure {
+      width: min(1100px, 100%);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg);
+      box-shadow: 0 -20px 60px rgba(0,0,0,.12);
+      transform-origin: center top;
+      will-change: transform, filter;
+    }
+    .card img {
+      flex: 1;
+      min-height: 0;
+      width: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .card figcaption {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 4px 0;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .card figcaption strong {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 500;
+      font-size: 1.3rem;
+      color: var(--ink);
+    }
+
+    /* The credits live inside the last card, so the photo shrinks to make room instead of being covered. */
+    .card.last {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 0;
+      background: var(--bg);
+    }
+    .card.last figure {
+      flex: 1;
+      min-height: 0;
+      height: auto;
+    }
+    footer {
+      padding: 16px 0;
+      text-align: center;
+      font-size: 0.7rem;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+    footer a { color: inherit; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <h1>Artist Name</h1>
+      <p>Exterior Design</p>
+    </div>
+    <span class="scroll-hint" aria-hidden="true"></span>
+  </header>
+
+  <main class="stack">
+    <section class="card"><figure>
+      <img src="images/01-farnsworth-house.jpg" alt="Glass-walled Farnsworth House among trees">
+      <figcaption><strong>Farnsworth House</strong><span>01</span></figcaption>
+    </figure></section>
+    <section class="card"><figure>
+      <img src="images/02-house-s.jpg" alt="Modern concrete house">
+      <figcaption><strong>House S</strong><span>02</span></figcaption>
+    </figure></section>
+    <section class="card"><figure>
+      <img src="images/03-glass-house.jpg" alt="Glass House in autumn">
+      <figcaption><strong>Glass House</strong><span>03</span></figcaption>
+    </figure></section>
+    <section class="card"><figure>
+      <img src="images/04-country-house.jpg" alt="Country house at dusk in winter">
+      <figcaption><strong>Country House</strong><span>04</span></figcaption>
+    </figure></section>
+    <section class="card last"><figure>
+      <img src="images/05-elbphilharmonie.jpg" alt="Elbphilharmonie facade in black and white">
+      <figcaption><strong>Elbphilharmonie</strong><span>05</span></figcaption>
+    </figure>
+    <footer>
+      Placeholder photos from Wikimedia Commons:
+      <a href="https://commons.wikimedia.org/wiki/File:The_1951_Mies_van_der_Rohe-designed_Farnsworth_House,_an_icon_of_20th_century_modern_architecture_in_Plano,_Illinois,_is_owned_by_the_National_Trust_for_Historic_Preservation_LCCN2011636469.tif">Carol M. Highsmith (public domain)</a> ·
+      <a href="https://commons.wikimedia.org/wiki/File:House_S_by_Minhwan_Park_%EB%B0%95%EB%AF%BC%ED%99%98_%EA%B1%B4%EC%B6%95_S_%EC%A3%BC%ED%83%9D.jpg">Gotopark (CC BY-SA 4.0)</a> ·
+      <a href="https://commons.wikimedia.org/wiki/File:Fall_view_of_Philip_Johnson%27s_Glass_House,_New_Canaan,_Connecticut_LCCN2010630799.tif">Carol M. Highsmith (public domain)</a> ·
+      <a href="https://commons.wikimedia.org/wiki/File:Country_house_at_dusk_in_midwinter_-_Flickr_-_northofsweden.jpg">northofsweden (CC BY 2.0)</a> ·
+      <a href="https://commons.wikimedia.org/wiki/File:Hamburg,_Elbphilharmonie_--_2023_--_6610_(bw).jpg">Dietmar Rabich (CC BY-SA 4.0)</a>
+    </footer>
+    </section>
+  </main>
+
+
+  <script>
+    // As the next card slides over a card, shrink and dim the one underneath.
+    const figures = [...document.querySelectorAll('.card figure')];
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function update() {
+      const vh = window.innerHeight;
+      figures.forEach((fig, i) => {
+        const next = figures[i + 1];
+        if (!next) return;
+        const covered = Math.min(Math.max(1 - next.parentElement.getBoundingClientRect().top / vh, 0), 1);
+        fig.style.transform = `scale(${1 - covered * 0.08})`;
+        fig.style.filter = `brightness(${1 - covered * 0.4})`;
+      });
+    }
+
+    if (!reduceMotion) {
+      addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
+      addEventListener('resize', update);
+      update();
+    }
+  </script>
+</body>
+</html>
