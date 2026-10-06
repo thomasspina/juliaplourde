@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Julia Plourde — Échantillons de Terrain</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500&family=Inter:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville&family=Inter:wght@400&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #f4f1ec;
-      --ink: #1d1c1a;
-      --muted: #8a857c;
+      --ink: #1d71b8;
+      --muted: #1d71b8;
     }
     * { box-sizing: border-box; margin: 0; }
     body {
@@ -18,6 +18,9 @@
       color: var(--ink);
       font-family: "Inter", system-ui, sans-serif;
     }
+
+    /* Vladimir Script and Bookman Old Style are licensed Microsoft fonts that can't be served from
+       here, so visitors without them installed get the closest Google Fonts lookalike. */
 
     /* Landing */
     .hero {
@@ -29,16 +32,17 @@
       padding: 16px;
     }
     .hero h1 {
-      font-family: "Cormorant Garamond", serif;
-      font-weight: 300;
+      font-family: "Vladimir Script", "Great Vibes", cursive;
+      font-weight: 400;
       font-size: clamp(3rem, 12vw, 9rem);
-      letter-spacing: -0.02em;
+      letter-spacing: 0;
       line-height: 1;
       animation: rise 1.2s cubic-bezier(.2,.7,.2,1) both;
     }
     .hero p {
       margin-top: 1.25rem;
       color: var(--muted);
+      font-family: "Bookman Old Style", "Bookman", "Libre Baskerville", serif;
       font-size: 0.8rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
